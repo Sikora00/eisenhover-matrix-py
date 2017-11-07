@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from rest_framework.routers import DefaultRouter
 
-from .api import TaskApi
+from .api import TaskViewSet
 
-urlpatterns = [
-    url(r'^task$', TaskApi.as_view())
-]
+router = DefaultRouter()
+router.register(r'^task', TaskViewSet)
+urlpatterns = router.urls
